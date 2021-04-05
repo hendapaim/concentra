@@ -6,16 +6,16 @@ function $(el)
 function TemporizadorH(callback, tempo)
 {
     let tempoID;
-    let inicio;
+    let momentoDoInicio;
     let tempoDecorrido = tempo;
 
     function pausar() {
         clearTimeout(tempoID);
-        tempoDecorrido -= new Date() - inicio;
+        tempoDecorrido -= new Date() - momentoDoInicio;
     }
 
     function iniciar() {
-        inicio = new Date();
+        momentoDoInicio = new Date();
         
         tempoID = setTimeout (function(){
             tempoDecorrido = tempo
@@ -34,19 +34,41 @@ function TemporizadorH(callback, tempo)
 }
 
 // Zona de Execução do ConcentraH //
-(function() {
-    console.log("Visor")
-})();
-//
 
-// # Execução de test
-let contador = 60;
-var concentraTempo = new TemporizadorH(function() {
-    if(contador === 0)
-    {
-        contador = 60;
-    }
-    contador--; 
-    console.log(contador);
-}, 1000);
-concentraTempo.iniciar()
+    // # Execução de test
+    let horas = 1;
+    let minutos = 30;
+    let segundos = 60;
+
+    const concentraTempo = new TemporizadorH(function() {
+        if(segundos === 0)
+        {
+            segundos = 60;
+            minutos -= 1
+        }else if(minutos === 0)
+        {
+            minutos = 60;
+            horas -= 1;
+        }else if(horas === 0)
+        {
+            console.log("Tempo acabou!")
+        }
+        
+        segundos--; 
+        $(".s").innerHTML = segundos;
+        $(".m").innerHTML = minutos +":";
+        $(".h").innerHTML = horas +":";
+        console.log(segundos);
+    }, 1000);
+
+    $(".inicio").addEventListener("click", function(){
+        concentraTempo.iniciar();
+    });
+    $(".pause").addEventListener("click", function(){
+        concentraTempo.pausar();
+    });
+    $(".cancelar").addEventListener("click", function(){
+        concentraTempo.cancelar();
+    });
+
+    //console.log(concentraTempo.inicio)
