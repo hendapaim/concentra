@@ -1,0 +1,10 @@
+{
+  "name": "Concentratempo",
+  "version": "0.0.0",
+  "description": "Concentra-te e mantenha o foco pelo tempo determinado!",
+  "main": "main.js",
+  "repository": "https://github.com/HendaPaim/Concentratempo.git",
+  "author": "HendaPaim <hendapaim278@gmail.com>",
+  "license": "MIT",
+  "private": true
+}

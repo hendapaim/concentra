@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Concentra</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div id="app" class="container">
+            <form name="form_tempo">
+                <div class="tempo">
+                    <!--
+                        <input type="time" name="hora" id="hora">
+                        <input type="time" name="minuto" id="minuto">
+                        <input type="time" name="segundo" id="segundo">
+                    -->
+                    <input type="time">
+                </div>
+                
+                <div class="alarme">
+                    <select name="son" id="son">
+                        <option value="son1">Radar</option>
+                        <option value="son2">Busina</option>
+                        <option value="son3">cosmic</option>
+                    </select>
+                </div>
+                
+
+                <div class="button">
+                    <button class="inicio" nome="inicio">Iniciar</button>
+                    <button class="disable" name="cancelar">Cancelar</button>
+                </div>
+            </form>
+            <div class="temporizador">
+                <!-- Essa parte na proxima actualização sera refeita e passará a ser criada com javascript-->
+                <span class="h">Hora: 00</span><span class="m">Minuto: 00</span><span class="s">Segundo: 00</span>
+            </div>
+        </div>
+    </main>
+    <script src="./main.js"></script>
+</body>
+</html>
