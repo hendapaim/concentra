@@ -4,7 +4,7 @@ function $(el)
 }
 window.onload = function () {
     
-    const tempo= 25;
+    const tempo= 1;
     let tempoID,
         minutos,
         segundos = "0"+00,
@@ -12,7 +12,7 @@ window.onload = function () {
         
         tempoDecorrido = tempo*60;
         
-    $('.display').innerHTML = `${25}:${segundos}`;
+    $('.display').innerHTML = `${tempo}:${segundos}`;
     
     function pausar() {
         clearInterval(tempoID);
@@ -21,6 +21,7 @@ window.onload = function () {
     function cancelar() {
         tempoDecorrido = tempo*60;
         clearInterval(tempoID);
+        $('.display').innerHTML = `${tempo}:${segundos}`;
     }
 
     function iniciar()
@@ -40,9 +41,10 @@ window.onload = function () {
         $('.display').innerHTML = `${minutos}:${segundos}`; 
         tempoDecorrido--;
         if (tempoDecorrido < 0) {
+            
             clearInterval(tempoID);
-            tempoDecorrido = tempo;
-            contagem = true;
+            alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra");
+            tempoDecorrido = tempo*60;
             return;
         }
         console.log(tempoDecorrido)
@@ -57,9 +59,4 @@ window.onload = function () {
     $(".cancelar").addEventListener("click", function(){
         cancelar()
     });
-
-    if(contagem)
-    {
-        alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra");
-    }
 };
