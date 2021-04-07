@@ -4,7 +4,7 @@ function $(el)
 }
 window.onload = function () {
     
-    const tempo= 1;
+    const tempo= 25;
     let tempoID,
         minutos,
         segundos = "0"+00,
