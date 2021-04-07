@@ -1,0 +1,20 @@
+<div id="config" class="row">
+                <div class="tempo">
+                    <!--
+                        <input type="time" name="hora" id="hora">
+                        <input type="time" name="minuto" id="minuto">
+                        <input type="time" name="segundo" id="segundo">
+                    -->
+                    <select name="hora" id="hora"></select>
+                    <select name="minuto" id="minuto"></select>
+                    <select name="segundo" id="segundo"></select>
+                </div>
+                <div class="alarme">
+                    <select name="son" id="son">
+                        <option value="son1">Radar</option>
+                        <option value="son2">Busina</option>
+                        <option value="son3">cosmic</option>
+                    </select>
+                    <audio src="./sons/"></audio>
+                </div>
+            </div>

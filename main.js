@@ -2,77 +2,64 @@ function $(el)
 {
     return document.querySelector(el);
 }
-
-function hora(){
-
-}
-
-// Zona de Execução do ConcentraH //
-// # Execução de test
-let horas = 0;
-let minutos = 1;
-let segundos = 00;
-
-const concentraTempo = new TemporizadorH(function() {
-    if(segundos === 0 && minutos != 0)
-    {
-        minutos -= 1
-        segundos = 60;
-    }else if(minutos === 0 && horas != 0)
-    {
-        horas -= 1;
-        minutos = 60;
-    }else if(horas === 0 && minutos === 0 && segundos === 0)
-    {   
-        console.log("Tempo acabou!");
-        alert("Tempo acabou");
-    }
+window.onload = function () {
     
-    segundos--; 
-    
-    $(".s").innerHTML = (segundos < 10) ? ("0" + segundos) : segundos;
-    $(".m").innerHTML = ((minutos < 10) ? ("0" + minutos) : minutos) + ":";
-    $(".h").innerHTML = `${horas}:`;
-    console.log(segundos);
-}, 1000);
-
-$(".inicio").addEventListener("click", function(){
-    concentraTempo.iniciar();
-});
-$(".pausa").addEventListener("click", function(){
-    concentraTempo.pausar()
-});
-$(".cancelar").addEventListener("click", function(){
-    concentraTempo.cancelar()
-});
-//console.log(concentraTempo.inicio)
-
-function TemporizadorH(callback, tempo)
-{
-    let tempoID;
-    let momentoDoInicio;
-    let tempoDecorrido = tempo;
-
-    function pausar() {
-        clearTimeout(tempoID);
-        tempoDecorrido -= new Date() - momentoDoInicio;
-    }
-
-    function iniciar() {
-        momentoDoInicio = new Date();
+    const tempo= 25;
+    let tempoID,
+        minutos,
+        segundos = "0"+00,
+        contagem = false,
         
-        tempoID = setTimeout (function(){
-            tempoDecorrido = tempo
-            iniciar();
-            callback();
-        }, tempoDecorrido);
-    }
+        tempoDecorrido = tempo*60;
+        
+    $('.display').innerHTML = `${25}:${segundos}`;
+    
+    function pausar() {
+        clearInterval(tempoID);
+    };
 
     function cancelar() {
-        tempoDecorrido = tempo;
+        tempoDecorrido = tempo*60;
+        clearInterval(tempoID);
     }
 
-    this.iniciar = iniciar;
-    this.pausar = pausar;
-    this.cancelar = cancelar;
-} 
+    function iniciar()
+    {
+        tempoID = setInterval(() => temporizador(), 1000);
+    }
+
+    function temporizador() {
+        // horas = (tempoDecorrido / 3600) | 0;
+        // minutos = (tempoDecorrido / 60) % 60 | 0;
+        minutos = (tempoDecorrido / 60) | 0;
+        segundos = (tempoDecorrido % 60) | 0;
+
+        minutos = minutos < 10 ? "0" + minutos : minutos;
+        segundos = segundos < 10 ? "0" + segundos : segundos;
+
+        $('.display').innerHTML = `${minutos}:${segundos}`; 
+        tempoDecorrido--;
+        if (tempoDecorrido < 0) {
+            clearInterval(tempoID);
+            tempoDecorrido = tempo;
+            contagem = true;
+            return;
+        }
+        console.log(tempoDecorrido)
+    };
+
+    $(".inicio").addEventListener("click", function(){
+        iniciar();
+    });
+    $(".pausa").addEventListener("click", function(){
+        pausar()
+    });
+    $(".cancelar").addEventListener("click", function(){
+        cancelar()
+    });
+
+    if(contagem)
+    {
+        alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra");
+    }
+};

@@ -7,45 +7,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css.css">
-    <title>Concentra</title>
+    <title>PomoCentra</title>
 </head>
 <body>
-    <header>
-        <span>PomoCentra</span>
-        <span>Tempo de aliviar</span>
-        <span>Configuração</span>
-    </header>
     <main>
-        <div id="app" class="container">
-            <div class="temporizador label">
-                <!-- Essa parte na proxima actualização sera refeita e passará a ser criada com javascript-->
-                <span class="h">00:</span><span class="m">00:</span><span class="s">00</span>
+        <div id="app" class="container text-light">
+            <div class="menu d-inline-flex">
+                <div class="logo">
+                    <span class="logotipo btn bg-laranja text-white"><strong>PomoCentra</strong></span>
+                </div>
+                
+                <div class="config right">
+                    <span class="btn text-white">Perfil</span>
+                    <span class="btn text-white">Ajustes</span>
+                </div>
             </div>
+            <hr>
+            <div class="visor shadow">
+                <div class="d-inline-flex titulo">
+                    <span class="p-2 bg-laranja">Concentra</span>
+                    <span class="p-2">Tempo de aliviar</span>
+                </div>
+                <div class="temporizador label">
+                    <!-- Essa parte na proxima actualização sera refeita e passará a ser criada com javascript-->
+                    <span class="display"></span>
+                </div>
 
-            <div class="tempo">
-                <!--
-                    <input type="time" name="hora" id="hora">
-                    <input type="time" name="minuto" id="minuto">
-                    <input type="time" name="segundo" id="segundo">
-                -->
-                <select name="hora" id="hora"></select>
-                <select name="minuto" id="minuto"></select>
-                <select name="segundo" id="segundo"></select>
+                <div class="btn-group">
+                    <button class="cancelar btn btn-secondary" name="cancelar">Cancelar</button>
+                    <button class="inicio btn btn-success text-white" nome="inicio">Iniciar</button>
+                    <button class="pausa btn bg-laranja btn-warning text-white" nome="pausa">Pausar</button>
+                </div>
             </div>
-            
-            <div class="alarme">
-                <select name="son" id="son">
-                    <option value="son1">Radar</option>
-                    <option value="son2">Busina</option>
-                    <option value="son3">cosmic</option>
-                </select>
-                <audio src="./sons/"></audio>
-            </div>
-
-            <div class="btn-group">
-                <button class="cancelar btn btn-secondary" name="cancelar">Cancelar</button>
-                <button class="inicio btn btn btn-outline-success" nome="inicio">Iniciar</button>
-                <button class="pausa btn btn-outline-warning" nome="pausa">Pausar</button>
+            <div class="footer">
+                <p><strong>ManFila- <b>&copy;</b> - 2021</strong></p>
             </div>
         </div>
     </main>
