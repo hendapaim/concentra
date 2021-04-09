@@ -2,7 +2,7 @@ function $(el)
 {
     return document.querySelector(el);
 }
-$('.relogio').innerHTML = '22:05';
+$('.relogio').innerHTML = Date().slice(16, 21);
 const tempo= 25;
 let tempoID,
     minutos,
