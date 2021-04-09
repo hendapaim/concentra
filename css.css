@@ -6,8 +6,7 @@ body{
   -webkit-tap-highlight-color: transparent;
 }
 .visor{
-  width: 420px;
-  height: 40vh;
+  width: 400px;
   margin: 10px auto;
   background-color: #ff8c00;
   display: grid;
@@ -18,10 +17,12 @@ body{
   grid-gap: 10px;
   padding: 10px;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 50%;
+  height: 50vh;
 }
 .titulo {
   margin: auto;
+  margin-top: 20px;
 }
 .titulo > span{
   border-radius: 5px;
@@ -31,32 +32,25 @@ body{
   background-color: orange;
   font-weight: bold;
 }
-
 .temporizador{
   margin: auto;
-  margin-bottom: 35px;
+  margin-top: -10px;
 }
 .label{
   line-height: 0.9;
   font-weight: bold;
   font-size: 120px;
 }
-.btn-group{
-  
-}
 .titulo { grid-area: header; }
 .temporizador { grid-area: main; }
 .btn-group { grid-area: footer; }
-
 .menu { 
   grid-area: header;
   position: relative;
 }
 .logotipo{
    background-color: #ff8c00;
-
  }
-
 .config{
   text-align: right;
 }
@@ -68,6 +62,13 @@ body{
   right: 0px;
 }
 
+.inicio, .cancelar, .pausa{
+  width: 0;
+  border-radius: 5px;
+  background-color: darkorange;
+  border: none;
+  cursor: pointer;
+}
 .visor { grid-area: main; }
 
 .footer {
@@ -83,10 +84,10 @@ body{
 .container {
   display: grid;
   grid-template-areas:
-    'header header header '
-    'main main main '
+    'header header header'
+    'main main main'
     'footer footer footer';
   grid-gap: 10px;
   padding: 10px;
-  width: 500px;
+  width: 412px;
 }
