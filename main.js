@@ -3,7 +3,7 @@ function $(el)
     return document.querySelector(el);
 }
 $('.relogio').innerHTML = Date().slice(16, 21);
-const tempo= 525;
+const tempo= 25;
 let tempoID,
     minutos,
     segundos = "00",
