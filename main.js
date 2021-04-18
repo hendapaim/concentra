@@ -3,6 +3,14 @@ function $(el)
     return document.querySelector(el);
 }
 
+function sons(){
+    som="./sons/alarme1.mp3"
+    $("audio").src = som;
+    $("audio").play();
+
+    alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra");
+}
+
 const tempo = 25;
 if(tempo<=999){
 
@@ -47,10 +55,10 @@ if(tempo<=999){
         display(tempoDecorrido);
 
         tempoDecorrido--;
-        if (tempoDecorrido < -1)
+        if (tempoDecorrido<-1)
         {
             clearInterval(tempoID);
-            alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra");
+            sons();
             contagem = true;
             tempoDecorrido = tempoEmSegundos;
             display(tempoDecorrido);
