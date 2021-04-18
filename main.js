@@ -29,6 +29,7 @@ if(tempo<=999){
         segundos = segundos < 10 ? "0" + segundos : segundos;
         $('.relogio').innerHTML = Date().slice(16, 21);
         $('.display').innerHTML = `${minutos}:${segundos}`;
+        $("title").innerHTML = `${minutos}:${segundos} | PomoCentra`;
     }
         
     //$('.display').innerHTML = `${tempo}:${segundos}`;
