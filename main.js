@@ -8,7 +8,7 @@ function sons(){
     $("audio").src = som;
     $("audio").play();
 
-    alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra");
+    alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra!");
 }
 
 const tempo = 25;
