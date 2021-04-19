@@ -17,6 +17,7 @@ body{
   grid-gap: 10px;
   padding: 10px;
   text-align: center;
+  border-radius: 5px;
   height: 50vh;
 }
 .titulo {
@@ -62,13 +63,17 @@ body{
 }
 
 .inicio, .cancelar, .pausa{
-  width: 0;
+  font-weight: bold;
   border-radius: 5px;
   border: none;
   cursor: pointer;
 }
-.inicio, .pausa{
-  background-color: darkorange;
+.pausa{
+  background-color: orange;
+}
+.inicio{
+  background-color: green;
+  border-radius: 5px;
 }
 .visor { grid-area: main; }
 

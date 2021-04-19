@@ -80,11 +80,9 @@ if(tempo<=999){
         $(".pausa").style.display="none";
         $(".inicio").style.display="block";
     });
-    /*
     $("#cancelar").addEventListener("click", function(){
         cancelar();
     });
-    */
 }else{
     alert("O tempo deve ser menor que 999 minutos!")
 }
