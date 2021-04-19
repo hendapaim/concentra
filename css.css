@@ -54,9 +54,6 @@ body{
 .config{
   text-align: right;
 }
-.config > span{
-  
-}
 .right {
   position: absolute;
   right: 0px;
