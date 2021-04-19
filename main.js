@@ -43,7 +43,7 @@ if(tempo<=999){
     {
         clearInterval(tempoID);
         tempoDecorrido = tempoEmSegundos;
-        $('.display').innerHTML = `${tempo}:${segundos}`;
+        display(tempoDecorrido);
     }
     function iniciar()
     {
@@ -82,6 +82,8 @@ if(tempo<=999){
     });
     $("#cancelar").addEventListener("click", function(){
         cancelar();
+        $(".pausa").style.display="none";
+        $(".inicio").style.display="block";
     });
 }else{
     alert("O tempo deve ser menor que 999 minutos!")
