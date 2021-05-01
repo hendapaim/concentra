@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./icon.svg" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <link rel="stylesheet" href="css.css">
     <title></title>
 </head>
@@ -20,10 +22,35 @@
                 
                 <div class="config right">
                     <span class="btn text-white">Perfil</span>
-                    <span class="btn text-white">Ajustes</span>
+                    <span class="ogotipo btn bg-laranja text-white" data-toggle="modal" data-target="#myModal">Ajustes</span>
                 </div>
             </div>
             <hr class="bg-white">
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Ajustes</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <h3>Tempo em minutos:  <input type=number min=0 max=999 value=25 class="tempoMinutos"></h3>
+
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn bg-laranja btn-warning salvar" data-dismiss="modal">Salvar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             <div class="visor shadow">
                 <div class="d-inline-flex titulo">
                     <span class="p-2 bg-laranja">Concentra</span>
@@ -40,7 +67,7 @@
                 <div class="btn-group">
                     <button id="cancelar" class="cancelar btn btn-secondary shadow" >Cancelar</button>
                     <button class="inicio btn btn-success text-white shadow">Iniciar</button>
-                    <button style="display: none;" class="pausa btn bg-laranja btn-warning text-white shadow" nome="pausa">Pausar</button>
+                    <button style="display: none;" class="pausa btn bg-laranja btn-warning text-white shadow" name="pausa">Pausar</button>
                 </div>
             </div>
             <div class="footer">
@@ -48,6 +75,7 @@
             </div>
         </div>
     </main>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel" src="./main.js"></script>
 </body>

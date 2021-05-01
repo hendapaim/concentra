@@ -5,6 +5,11 @@ body{
   'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   -webkit-tap-highlight-color: transparent;
 }
+
+.modal {
+  color: #000001;
+}
+
 .visor{
   width: 400px;
   margin: 10px auto;
@@ -56,7 +61,7 @@ body{
 }
 .right {
   position: absolute;
-  right: 0px;
+  right: 0;
 }
 
 .inicio, .cancelar, .pausa{

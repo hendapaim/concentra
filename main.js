@@ -1,90 +1,98 @@
-function $(el)
-{
-    return document.querySelector(el);
-}
+window.addEventListener("load", () => {
 
-function sons(){
-    som="./sons/alarme1.mp3"
-    $("audio").src = som;
-    $("audio").play();
+    function $(el)
+    {
+        return document.querySelector(el);
+    }
 
-    //alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra!");
-}
+    function sons(){
+        const som="./sons/alarme1.mp3"
+        $("audio").src = som;
+        $("audio").play();
 
-const tempo = 25;
-if(tempo<=999){
+        //alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra!");
+    }
 
+    let tempo = $(".tempoMinutos").value ?? 25;
     let tempoID,
-        minutos,
-        segundos,
         contagem = false,
         tempoEmSegundos =tempo*60,
         tempoDecorrido = tempoEmSegundos;
 
-    function display(tempoDecorrido) {
-        minutos = (tempoDecorrido / 60) | 0;
-        segundos = (tempoDecorrido % 60) | 0;
+    if(tempo<=999){
 
-        minutos = minutos < 10 ? "0" + minutos : minutos;
-        segundos = segundos < 10 ? "0" + segundos : segundos;
-        $('.relogio').innerHTML = Date().slice(16, 21);
-        $('.display').innerHTML = `${minutos}:${segundos}`;
-        $("title").innerHTML = `${minutos}:${segundos} | PomoCentra`;
-    }
-        
-    //$('.display').innerHTML = `${tempo}:${segundos}`;
-    display(tempoDecorrido);
+        function display(tempoDecorrido) {
+            let minutos = (tempoDecorrido / 60) | 0;
+            let segundos = (tempoDecorrido % 60) | 0;
 
-    function pausar()
-    {
-        clearInterval(tempoID);
-    }
-    function cancelar()
-    {
-        clearInterval(tempoID);
-        tempoDecorrido = tempoEmSegundos;
-        display(tempoDecorrido);
-    }
-    function iniciar()
-    {
-        tempoID = setInterval(() => temporizador(), 1000);
-    }
-    function temporizador()
-    {
-        // horas = (tempoDecorrido / 3600) | 0;
-        // minutos = (tempoDecorrido / 60) % 60 | 0;
-        display(tempoDecorrido);
+            minutos = minutos < 10 ? "0" + minutos : minutos;
+            segundos = segundos < 10 ? "0" + segundos : segundos;
+            $('.relogio').innerHTML = Date().slice(16, 21);
+            $('.display').innerHTML = `${minutos}:${segundos}`;
+            $("title").innerHTML = `${minutos}:${segundos} | PomoCentra`;
+        }
 
-        tempoDecorrido--;
-        if (tempoDecorrido<-1)
-        {
-            clearInterval(tempoID);
-            sons();
-            contagem = true;
+        $(".salvar").addEventListener("click", ()=> {
+            tempo = $(".tempoMinutos").value
+            tempoEmSegundos =tempo*60;
             tempoDecorrido = tempoEmSegundos;
             display(tempoDecorrido);
+        })
+
+        display(tempoDecorrido);
+
+        function pausar()
+        {
+            clearInterval(tempoID);
+        }
+        function cancelar()
+        {
+            clearInterval(tempoID);
+            tempoDecorrido = tempoEmSegundos;
+            display(tempoDecorrido);
+        }
+        function iniciar()
+        {
+            clearInterval(tempoID);
+            tempoID = setInterval(() => temporizador(), 1000);
+        }
+        function temporizador()
+        {
+            // horas = (tempoDecorrido / 3600) | 0;
+            // minutos = (tempoDecorrido / 60) % 60 | 0;
+            display(tempoDecorrido);
+
+            tempoDecorrido--;
+            if (tempoDecorrido<0)
+            {
+                clearInterval(tempoID);
+                sons();
+                contagem = true;
+                tempoDecorrido = tempoEmSegundos;
+                display(tempoDecorrido);
+                $(".pausa").style.display="none";
+                $(".inicio").style.display="block";
+                return;
+            }
+            //console.log(tempoDecorrido)
+        }
+
+        $(".inicio").addEventListener("click", function(){
+            iniciar();
+            $(".inicio").style.display="none";
+            $(".pausa").style.display="block";
+        });
+        $(".pausa").addEventListener("click", function(){
+            pausar();
             $(".pausa").style.display="none";
             $(".inicio").style.display="block";
-            return;
-        }
-        //console.log(tempoDecorrido)
+        });
+        $("#cancelar").addEventListener("click", function(){
+            cancelar();
+            $(".pausa").style.display="none";
+            $(".inicio").style.display="block";
+        });
+    }else{
+        alert("O tempo deve ser menor que 999 minutos!")
     }
-
-    $(".inicio").addEventListener("click", function(){
-        iniciar();
-        $(".inicio").style.display="none";
-        $(".pausa").style.display="block";
-    });
-    $(".pausa").addEventListener("click", function(){
-        pausar();
-        $(".pausa").style.display="none";
-        $(".inicio").style.display="block";
-    });
-    $("#cancelar").addEventListener("click", function(){
-        cancelar();
-        $(".pausa").style.display="none";
-        $(".inicio").style.display="block";
-    });
-}else{
-    alert("O tempo deve ser menor que 999 minutos!")
-}
+})
