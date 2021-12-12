@@ -54,7 +54,9 @@ h1, h2{
 }
 
 .countDown{
-  padding: 8px;
+  max-width: 620px;
+  margin: auto;
+  padding: 0 12px;
   background-color:  var(--Background-segund);
 }
 
