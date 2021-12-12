@@ -1,6 +1,6 @@
 {
-  "name": "Concentratempo",
-  "version": "0.0.0",
+  "name": "Concentra",
+  "version": "0.0.2",
   "description": "Concentra-te e mantenha o foco pelo tempo determinado!",
   "main": "main.js",
   "repository": "https://github.com/HendaPaim/Concentratempo.git",

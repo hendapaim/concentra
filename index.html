@@ -5,78 +5,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./icon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <link rel="stylesheet" href="css.css">
-    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <title>Concentra - Um cronômetro Pomodoro online para aumentar sua produtividade</title>
 </head>
 <body>
     <main>
-        <div id="app" class="container text-light">
-            <div class="menu d-inline-flex">
-                <div class="logo">
-                    <span class="logotipo btn bg-laranja text-white"><strong>PomoCentra</strong></span>
+        <div id="app">
+            <h1 class="logo"><img src="./icon.svg"></img> Concentra</h1>
+            
+            <div class="option">
+                <a>Pomodoro</a>
+                <a>Intervalo</a>
+            </div>
+            <div class="countDown">
+                <span>#1</span>
+                <div class="count">00:00:00</div>
+                <div class="timeNow">
+                    <span><ion-icon name="time-outline"></ion-icon>09:00</span>
                 </div>
-                
-                <div class="config right">
-                    <span class="btn text-white">Perfil</span>
-                    <span class="logotipo btn bg-laranja text-white" data-toggle="modal" data-target="#myModal">Ajustes</span>
+                <div class="buttons">
+                    <a href="#"><ion-icon name="refresh-outline"></ion-icon></a>
+                    <a href="#"><ion-icon name="play-outline"></ion-icon></a>
                 </div>
             </div>
-            <hr class="bg-white">
-            <!-- The Modal -->
-            <div class="modal shadow" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Ajustes</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <h3>Tempo em minutos:  <input type=number min=0 max=999 value=25 class="tempoMinutos"></h3>
-
-                        </div>
-
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn bg-laranja btn-warning salvar" data-dismiss="modal">Salvar</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="visor shadow">
-                <div class="d-inline-flex titulo">
-                    <span class="p-2 bg-laranja">Concentra</span>
-                    <span class="p-2">Tempo de aliviar</span>
-                </div>
-                <div class="temporizador ">
-                    <!-- Essa parte na proxima actualização sera refeita e passará a ser criada com javascript-->
-                    <span class="display label"></span>
-                    <br>
-                    <span class="relogio"></span>
-                    <audio></audio>
-                </div>
-
-                <div class="btn-group">
-                    <button id="cancelar" class="cancelar btn btn-secondary shadow" >Cancelar</button>
-                    <button class="inicio btn btn-success text-white shadow">Iniciar</button>
-                    <button style="display: none;" class="pausa btn bg-laranja btn-warning text-white shadow" name="pausa">Pausar</button>
-                </div>
-            </div>
-            <div class="footer">
-                <p><strong>ManFila- <b>&copy;</b> - 2021</strong></p>
+            
+            <div class="setting">
+                <a><ion-icon name="cog-outline"></ion-icon></a>
             </div>
         </div>
+
+        <div id="texto">
+            <h1>Um cronômetro Pomodoro online para aumentar sua produtividade</h1>
+            <br>
+            <h2>O que é Pomofocus?</h2>
+            <p>É um temporizador pomodoro personalizável que funciona no navegador desktop e móvel. O objetivo deste aplicativo é ajudá-lo a se concentrar em qualquer tarefa em que esteja trabalhando, como estudar, escrever ou programar. Este aplicativo é inspirado na Técnica Pomodoro, que é um método de gerenciamento de tempo desenvolvido por Francesco Cirillo.</p> 
+
+            <h2>O que é técnica Pomodoro?</h2>
+            <p>A Técnica Pomodoro é criada por Francesco Cirillo para uma forma mais produtiva de trabalhar e estudar. A técnica usa um cronômetro para dividir o trabalho em intervalos, tradicionalmente de 25 minutos de duração, separados por pequenos intervalos. Cada intervalo é conhecido como pomodoro, palavra italiana para "tomate", em homenagem ao cronômetro de cozinha em forma de tomate que Cirillo usava quando era estudante universitário. - Wikipedia</p>
+
+            <h2>Como usar o temporizador Pomodoro?</h2>
+            <ol>
+                <li> Adicione tarefas para trabalhar hoje</li>
+                <li>Definir estimativa de pomodoros (1 = 25min de trabalho) para cada tarefa</li>
+                <li>Selecione uma tarefa para trabalhar</li>
+                <li>Inicie o cronômetro e concentre-se na tarefa por 25 minutos</li>
+                <li>Faça uma pausa de 5 minutos quando o alarme tocar</li>
+                <li>Repita 3-5 até terminar as tarefas</li>
+            </ol>
+           
+           <h2>Recursos</h2>
+           <ul>
+               <li>Design responsivo que funciona com desktop e celular</li>
+               <li>Transição de cores para alternar o humor entre o tempo de trabalho e o tempo de descanso</li>
+               <li>Notificação de áudio no final de um período de cronômetro</li>
+               <li>Intervalos de cronômetro personalizáveis para atender às suas preferências</li>
+           </ul>
+
+           <h2>Baixar aplicativo</h2>
+            <ul>
+                <li>Para Windows (arquivo exe)</li>
+                <li>Para Linux (arquivo zip)</li>
+            </ul> 
+            <br>
+        </div>
     </main>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <hr>
+    <footer class="footer">
+        <p>Feito com ❤️ por Henda Paim - FilaSoft</p>
+        <p>&copy; Concentra - 2021. Todos os direitos reservados.</p>
+        <span>Version - 0.0.2</span>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script type="text/babel" src="./main.js"></script>
 </body>
 </html>

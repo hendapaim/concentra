@@ -1,0 +1,93 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+div {
+  display: block;
+}
+h1, h2{
+  margin-top: 34px;
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  line-height: 1.4em;
+}
+:root{
+  
+}
+
+#app{
+  width: 100%;
+  min-height: 100vh;
+  transition: background-color 0.5s ease-in-out 0s;
+  background-color: rgb(43, 55, 61);
+  color: #ffffff;
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+.option{
+  width: 15%;
+  background-color: #1f292d;
+  border-radius: 25px;
+  margin: 20px auto;
+}
+.option a{
+  background-color: rgb(43, 55, 61);
+  border-radius: 25px;
+  padding: 10px;
+  cursor: pointer;
+}
+.option a:hover{
+  background-color: rgb(47, 10, 150);
+}
+.option a:active{
+  background-color: red;
+}
+
+#app img, div.setting ion-icon{
+  width: 25px;
+  height: 25px;
+}
+
+.countDown{
+  padding: 8px;
+  border: 2px solid;
+  background-color: #1f292d;
+}
+
+.count{
+  font-size: 150px;
+}
+
+.timeNow{
+  
+}
+
+.buttons{
+
+}
+
+.buttons ion-icon{
+  width: 60px;
+  height: 60px;
+}
+
+#texto{
+  max-width: 620px;
+  margin: auto;
+  padding: 0 12px;
+  color: black;
+  vertical-align: inherit;
+}
+
+#texto p {
+  font-size: 18px;
+  line-height: 1.6em;
+}
+
+footer{
+  text-align: center;
+}

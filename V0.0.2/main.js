@@ -3,27 +3,31 @@ function $(el)
     return document.querySelector(el);
 }
 
+function ajustes()
+{
+
+}
+ajustes();
+
 function sons(){
-    som="./sons/alarme1.mp3"
+    const som="./sons/alarme1.mp3"
     $("audio").src = som;
     $("audio").play();
 
     //alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra!");
 }
 
-const tempo = 25;
+let tempo = $(".tempoMinutos").value ?? 25;
+let tempoID,
+    contagem = false,
+    tempoEmSegundos =tempo*60,
+    tempoDecorrido = tempoEmSegundos;
+
 if(tempo<=999){
 
-    let tempoID,
-        minutos,
-        segundos,
-        contagem = false,
-        tempoEmSegundos =tempo*60,
-        tempoDecorrido = tempoEmSegundos;
-
     function display(tempoDecorrido) {
-        minutos = (tempoDecorrido / 60) | 0;
-        segundos = (tempoDecorrido % 60) | 0;
+        let minutos = (tempoDecorrido / 60) | 0;
+        let segundos = (tempoDecorrido % 60) | 0;
 
         minutos = minutos < 10 ? "0" + minutos : minutos;
         segundos = segundos < 10 ? "0" + segundos : segundos;
@@ -31,8 +35,14 @@ if(tempo<=999){
         $('.display').innerHTML = `${minutos}:${segundos}`;
         $("title").innerHTML = `${minutos}:${segundos} | PomoCentra`;
     }
-        
-    //$('.display').innerHTML = `${tempo}:${segundos}`;
+
+    $(".salvar").addEventListener("click", ()=> {
+        tempo = $(".tempoMinutos").value
+        tempoEmSegundos =tempo*60;
+        tempoDecorrido = tempoEmSegundos;
+        display(tempoDecorrido);
+    })
+
     display(tempoDecorrido);
 
     function pausar()
@@ -43,10 +53,11 @@ if(tempo<=999){
     {
         clearInterval(tempoID);
         tempoDecorrido = tempoEmSegundos;
-        $('.display').innerHTML = `${tempo}:${segundos}`;
+        display(tempoDecorrido);
     }
     function iniciar()
     {
+        clearInterval(tempoID);
         tempoID = setInterval(() => temporizador(), 1000);
     }
     function temporizador()
@@ -56,7 +67,7 @@ if(tempo<=999){
         display(tempoDecorrido);
 
         tempoDecorrido--;
-        if (tempoDecorrido<-1)
+        if (tempoDecorrido<0)
         {
             clearInterval(tempoID);
             sons();
@@ -82,6 +93,8 @@ if(tempo<=999){
     });
     $("#cancelar").addEventListener("click", function(){
         cancelar();
+        $(".pausa").style.display="none";
+        $(".inicio").style.display="block";
     });
 }else{
     alert("O tempo deve ser menor que 999 minutos!")
