@@ -29,6 +29,12 @@ h1, h2{
   padding-bottom: 12px;
 }
 
+
+#app img, div.setting ion-icon{
+  width: 25px;
+  height: 25px;
+}
+
 .option{
   width: 15%;
   background-color: var(--Background-segund);
@@ -48,15 +54,17 @@ h1, h2{
   background-color: red;
 }
 
-#app img, div.setting ion-icon{
-  width: 25px;
-  height: 25px;
-}
-
-.countDown{
+.countDown, #texto, .progress{
   max-width: 620px;
   margin: auto;
   padding: 0 12px;
+}
+
+.progress{
+
+}
+
+.countDown{
   background-color:  var(--Background-segund);
 }
 
@@ -82,9 +90,6 @@ h1, h2{
 }
 
 #texto{
-  max-width: 620px;
-  margin: auto;
-  padding: 0 12px;
   color: black;
   vertical-align: inherit;
 }
