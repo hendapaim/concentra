@@ -5,28 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./icon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
     <title>Concentra - Um cronômetro Pomodoro online para aumentar sua produtividade</title>
 </head>
 <body>
     <main>
         <div id="app">
-            <h1 class="logo">Concentra</h1>
+            <header>
+                <img src="./icon.svg">
+                <h1 class="logo">Concentra</h1>
+                <audio></audio>
+            </header>
             
             <div class="option">
-                <a>Pomodoro</a>
-                <a>Intervalo</a>
+                <span>Pomodoro</span>
+                <span>Intervalo</span>
             </div>
             <hr class="progress">
             <div class="countDown">
                 <span>#1</span>
                 <div class="count">00:00:00</div>
                 <div class="timeNow">
-                    <span><ion-icon name="time-outline"></ion-icon>09:00</span>
+                    <span class="relogio"></span>
                 </div>
                 <div class="buttons">
-                    <a href="#"><ion-icon name="refresh-outline"></ion-icon></a>
-                    <a href="#"><ion-icon name="play-outline"></ion-icon></a>
+                    <span class="iniciar btn btn-primary">Inciar</span>
+                    <span><ion-icon name="play-outline"></ion-icon></span>
                 </div>
             </div>
             
@@ -76,8 +79,6 @@
         <p>&copy; Concentra - 2021. Todos os direitos reservados.</p>
         <span>Version - 0.0.2</span>
     </footer>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script type="module" src="./main.js"></script>
 </body>
 </html>

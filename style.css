@@ -17,6 +17,7 @@ h1, h2{
 :root{
   --background: #121214;
   --Background-segund: #202024;
+  --corfundo: #2c3e50;
 }
 
 #app{
@@ -27,13 +28,9 @@ h1, h2{
   color: #ffffff;
   text-align: center;
   padding-bottom: 12px;
-
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
 
@@ -43,22 +40,7 @@ h1, h2{
 }
 
 .option{
-  width: 15%;
-  background-color: var(--Background-segund);
-  border-radius: 25px;
-  margin: 20px auto;
-}
-.option a{
-  background-color: rgb(43, 55, 61);
-  border-radius: 25px;
-  padding: 10px;
-  cursor: pointer;
-}
-.option a:hover{
-  background-color: rgb(47, 10, 150);
-}
-.option a:active{
-  background-color: red;
+  
 }
 
 .countDown, #texto, .progress{
@@ -78,7 +60,7 @@ h1, h2{
 }
 
 .count{
-  font-size: 150px;
+  font-size: min(100px);
   font-weight: 500;
 }
 
