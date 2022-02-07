@@ -92,7 +92,7 @@ function save(){
     display(localStorage.timer);
 }
 
-async function  toque(){
+async function toque(){
     $("audio").src = await som;
     $("audio").play();
 }
