@@ -15,17 +15,20 @@ h1, h2{
   line-height: 1.4em;
 }
 :root{
-  --background: #121214;
-  --Background-segund: #202024;
+  --background: #d9edf7;
+  --Background-segund: #bce8f1;
   --corfundo: #2c3e50;
+  --textColor: #31708f;
+  --textColor2: #2c3e50;
 }
 
 #app{
   width: 100%;
   min-height: 100vh;
+  padding-top: 52px;
   transition: background-color 0.5s ease-in-out 0s;
   background-color: var(--background);
-  color: #ffffff;
+  color: var(--textColor2);
   text-align: center;
   padding-bottom: 12px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -34,56 +37,63 @@ h1, h2{
 }
 
 
-#app img, div.setting ion-icon{
+#app img{
   width: 25px;
   height: 25px;
+  margin-right: 4px;
+}
+header div{
+  margin-bottom: 10px;
 }
 
+.logo h1 {
+  margin: 0;
+  padding: 0;
+}
 .option{
   
 }
 
-.countDown, #texto, .progress{
-  max-width: 620px;
-  margin: auto;
-  padding: 0 12px;
-}
-
-.progress{
-
-}
 
 .countDown{
+  min-height: 312px;
+  max-width: 620px;
+  margin: auto;
   background-color:  var(--Background-segund);
+  border-color: var(--textColor);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  box-shadow: -1px 1px 2px var(--textColor2), 1px 1px 8px var(--textColor2);
+  padding: 0 0 8px 0;
 }
 
+.progress-bar{
+  background-color: var(--textColor2);
+}
+
+.timer{
+  padding-top: 8px;
+}
 .count{
-  font-size: min(100px);
+  font-size: min(120px);
   font-weight: 500;
 }
 
 .timeNow{
-  
+  margin-bottom: 10px;
 }
 
 .buttons{
 
 }
 
-.buttons ion-icon{
-  width: 60px;
-  height: 60px;
-}
-
-.setting{
-  margin-top: 10px;
-}
-
 #texto{
-  color: black;
+  max-width: 620px;
+  margin: auto;
+  color: var(--textColor2);
   vertical-align: inherit;
+  padding-right: 5px;
+  padding-left: 10px;
 }
 
 #texto p {

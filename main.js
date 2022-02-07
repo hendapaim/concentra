@@ -1,33 +1,41 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/js/dist/modal.js'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './style.css'
 
 const $ = el => document.querySelector(el); //* Function para pegar elementos html
 
-let tempoID,
-    tempoEmSegundos = 24*60;
-let timer_on = false;
+let tempoID;
+let timer_pad = $(".tempoMinutos").value*60
 
-localStorage.timer_on = localStorage.timer_on || false; 
-localStorage.timer = Number(localStorage.timer || 24);
+function init (){
+  $(".start").addEventListener("click", start);
+  $(".stop").addEventListener("click", stop);
+  $(".reset").addEventListener("click", reset);
+  $(".save").addEventListener("click", save);
 
-if(localStorage.timer_on)
-{
-    display(localStorage.timer)
-    
-}else{
-   timerCount();
-   localStorage.timer_on = true; 
+  if(localStorage.timer_on === 'true'){
+    timerCount();
+    $(".start").classList.add("disabled");
+    $(".stop").classList.remove("disabled");
+    // console.log("verdadeiro estou aqui");
+  }else{
+    localStorage.timer = Number(localStorage.timer) || timer_pad;
+    localStorage.carry = localStorage.carry ? localStorage.carry : localStorage.timer;
+    display(localStorage.timer);
+    // console.log(localStorage.timer);
+    // console.log("Localstorage é " + localStorage.timer_on);
+  }
 }
 
 function timerCount(){
-    localStorage.timer--;
-    display(localStorage.timer);
     if(localStorage.timer <= 0){
-        localStorage.timer_on = false; 
+        localStorage.timer_on = false;
+        toque();
         return;
     }
-   
+    localStorage.timer--; // logica estara aqui
+    display(localStorage.timer);
     tempoID = setTimeout(timerCount, 1000);
 }
 
@@ -37,82 +45,53 @@ function display(timer) {
 
     minutos = minutos < 10 ? "0" + minutos : minutos;
     segundos = segundos < 10 ? "0" + segundos : segundos;
-    $('.relogio').innerHTML = Date().slice(16, 21);
+    $('.relogio').innerHTML = localStorage.timer_on === 'true' ? Date().slice(16, 21) : " ";
     $('.count').innerHTML = `${minutos}:${segundos}`;
     $("title").innerHTML = `${minutos}:${segundos} | Concentra`;
 }
 
-function iniciar(){
-    if(!timer_on && (localStorage.timer > 0))
+function start(){
+    if(localStorage.timer_on != 'true')
     {
         localStorage.timer_on = true;
+        // localStorage.carry = !localStorage.carry ? localStorage.timer;
+        // console.log(carry);
         timerCount();
+
+        $(".start").classList.add("disabled");
+        $(".stop").classList.remove("disabled");
     }
-}
-// Evento do button iniciar
-$(".iniciar").addEventListener("click", function(){
-    iniciar();
-    // $(".iniciar").classList.add = "disable";
+    // 
     // $(".pausa").style.display="block";
-});
+}
 
-// $(".salvar").addEventListener("click", ()=> {
-//     tempo = $(".tempoMinutos").value
-//     tempoEmSegundos =tempo*60;
-//     tempoDecorrido = tempoEmSegundos;
-//     display(tempoDecorrido);
-// })
+function stop(){
+    if(localStorage.timer_on === 'true')
+    {
+        localStorage.timer_on = false;
+        clearTimeout(tempoID);
+    }
+    $(".start").classList.remove("disabled");
+    $(".stop").classList.add("disabled");
+}
 
+function reset() {
+    localStorage.timer = localStorage.carry;
+    display(localStorage.timer);
+}
 
+function save(){
+    localStorage.timer = $(".tempoMinutos").value*60;
+    localStorage.carry = localStorage.timer;
+    display(localStorage.timer);
+}
 
-// $(".pausa").addEventListener("click", function(){
-//     pausar();
-//     $(".pausa").style.display="none";
-//     $(".inicio").style.display="block";
-// });
-
-// $("#cancelar").addEventListener("click", function(){
-//     cancelar();
-//     $(".pausa").style.display="none";
-//     $(".inicio").style.display="block";
-// });
-
-
-function sons(){
-    const som="./sons/alarme1.mp3"
+function toque(){
+    const som="./sons/alarme1.mp3";
     $("audio").src = som;
     $("audio").play();
 
     //alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra!");
 }
-
-// Chamadas dad funcition
-
-
-// /*
-// if(tempo<=999){
-    
-//     function temporizador()
-//     {
-//         // horas = (tempoDecorrido / 3600) | 0;
-//         // minutos = (tempoDecorrido / 60) % 60 | 0;
-//         display(tempoDecorrido);
-
-//         tempoDecorrido--;
-//         if (tempoDecorrido<0)
-//         {
-//             clearInterval(tempoID);
-//             sons();
-//             contagem = true;
-//             tempoDecorrido = tempoEmSegundos;
-//             display(tempoDecorrido);
-//             $(".pausa").style.display="none";
-//             $(".inicio").style.display="block";
-//             return;
-//         }
-//         //console.log(tempoDecorrido)
-//     }
-// }else{
-//     alert("O tempo deve ser menor que 999 minutos!")
-// }
-// */
+// iniciar o programa
+init()
