@@ -36,7 +36,6 @@ h1, h2{
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 #app img{
   width: 25px;
   height: 25px;
@@ -53,7 +52,6 @@ header div{
 .option{
   
 }
-
 
 .countDown{
   min-height: 312px;

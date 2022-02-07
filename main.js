@@ -5,6 +5,8 @@ import './style.css'
 
 const $ = el => document.querySelector(el); //* Function para pegar elementos html
 
+const som="./sons/alarme1.mp3";
+
 let tempoID;
 let timer_pad = $(".tempoMinutos").value*60
 
@@ -29,9 +31,13 @@ function init (){
 }
 
 function timerCount(){
-    if(localStorage.timer <= 0){
-        localStorage.timer_on = false;
+    if(Number(localStorage.timer) <= 0){
+        $(".start").classList.remove("disabled");
+        $(".stop").classList.add("disabled");
         toque();
+        localStorage.timer_on = false;
+        // alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra!");
+        reset();
         return;
     }
     localStorage.timer--; // logica estara aqui
@@ -86,12 +92,9 @@ function save(){
     display(localStorage.timer);
 }
 
-function toque(){
-    const som="./sons/alarme1.mp3";
-    $("audio").src = som;
+async function  toque(){
+    $("audio").src = await som;
     $("audio").play();
-
-    //alert("Tempo esgotou! alivia-se por 5 minutos depois volte o PomoCentra!");
 }
 // iniciar o programa
 init()
